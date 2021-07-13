@@ -29,7 +29,9 @@ namespace FrictionAndWearTest
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Form2 nextForm = new Form2();
+            this.Hide();
+            DialogResult dialogResult = nextForm.ShowDialog();
         }
 
         private void label1_Click(object sender, EventArgs e)
