@@ -12,6 +12,7 @@ namespace FrictionAndWearTest
 {
     public partial class Form3 : Form
     {
+
         public Form3()
         {
             InitializeComponent();
@@ -122,7 +123,7 @@ namespace FrictionAndWearTest
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void button2_Click_1(object sender, EventArgs e)

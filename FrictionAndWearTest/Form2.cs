@@ -50,7 +50,9 @@ namespace FrictionAndWearTest
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Form1 backForm = new Form1();
+            this.Hide();
+            DialogResult dialogResult = backForm.ShowDialog();
         }
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -105,7 +107,9 @@ namespace FrictionAndWearTest
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            Form3 nextForm = new Form3();
+            this.Hide();
+            DialogResult dialogResult = nextForm.ShowDialog();
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
