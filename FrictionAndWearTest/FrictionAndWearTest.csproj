@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Form1 - Kopyala.cs">
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form3.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form2.cs">
