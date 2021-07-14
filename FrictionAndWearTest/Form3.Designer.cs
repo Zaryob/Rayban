@@ -42,7 +42,6 @@ namespace FrictionAndWearTest
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -54,6 +53,9 @@ namespace FrictionAndWearTest
             this.button6 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.portStatusLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label6
@@ -179,13 +181,6 @@ namespace FrictionAndWearTest
             this.label7.Text = "Port:";
             this.label7.Click += new System.EventHandler(this.label7_Click_1);
             // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(664, 44);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(121, 23);
-            this.textBox7.TabIndex = 22;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -250,35 +245,42 @@ namespace FrictionAndWearTest
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.LimeGreen;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button4.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.button4.Location = new System.Drawing.Point(64, 187);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(129, 36);
             this.button4.TabIndex = 27;
             this.button4.Text = "Start Test";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.Firebrick;
             this.button5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button5.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.button5.Location = new System.Drawing.Point(64, 246);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(129, 36);
             this.button5.TabIndex = 28;
             this.button5.Text = "Stop Test";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button6.Location = new System.Drawing.Point(64, 307);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(129, 36);
             this.button6.TabIndex = 29;
             this.button6.Text = "Take Output";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             // 
             // label10
             // 
@@ -297,9 +299,38 @@ namespace FrictionAndWearTest
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.Location = new System.Drawing.Point(98, 127);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 21);
+            this.label11.Size = new System.Drawing.Size(14, 21);
             this.label11.TabIndex = 31;
-            this.label11.Text = "label11";
+            this.label11.Text = " ";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(664, 48);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 23);
+            this.comboBox2.TabIndex = 32;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(615, 216);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 15);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Port Status:";
+            this.label2.Click += new System.EventHandler(this.label2_Click_1);
+            // 
+            // portStatusLabel
+            // 
+            this.portStatusLabel.AutoSize = true;
+            this.portStatusLabel.Location = new System.Drawing.Point(693, 216);
+            this.portStatusLabel.Name = "portStatusLabel";
+            this.portStatusLabel.Size = new System.Drawing.Size(10, 15);
+            this.portStatusLabel.TabIndex = 34;
+            this.portStatusLabel.Text = " ";
             // 
             // Form3
             // 
@@ -308,6 +339,9 @@ namespace FrictionAndWearTest
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.portStatusLabel);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.button6);
@@ -317,7 +351,6 @@ namespace FrictionAndWearTest
             this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox9);
@@ -357,7 +390,6 @@ namespace FrictionAndWearTest
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox9;
@@ -369,6 +401,9 @@ namespace FrictionAndWearTest
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label portStatusLabel;
     }
 }
 
