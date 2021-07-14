@@ -12,6 +12,11 @@ namespace FrictionAndWearTest
 {
     public partial class Form3 : Form
     {
+        public string tstaff;
+        public string tno;
+        public string wcode;
+        public string matcode;
+        public string weight;
 
         public Form3()
         {
@@ -21,7 +26,16 @@ namespace FrictionAndWearTest
 
         private void Form3_Load(object sender, EventArgs e)
         {
-
+            tstaffBox.Text = tstaff;
+            tstaffBox.Enabled = false;
+            tnoBox.Text = tno;
+            tnoBox.Enabled = false;
+            wcodeBox.Text = wcode;
+            wcodeBox.Enabled = false;
+            matcodeBox.Text = matcode;
+            matcodeBox.Enabled = false;
+            weightBox.Text = weight;
+            weightBox.Enabled = false;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -133,7 +147,23 @@ namespace FrictionAndWearTest
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            if (button3.Text == "Edit")
+            {
+                tstaffBox.Enabled = true;
+                tnoBox.Enabled = true;
+                wcodeBox.Enabled = true;
+                matcodeBox.Enabled = true;
+                weightBox.Enabled = true;
+                button3.Text = "Lock";
+            }
+            else {
+                tstaffBox.Enabled = false;
+                tnoBox.Enabled = false;
+                wcodeBox.Enabled = false;
+                matcodeBox.Enabled = false;
+                weightBox.Enabled = false;
+                button3.Text = "Edit";
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)

@@ -108,6 +108,11 @@ namespace FrictionAndWearTest
         private void button1_Click_1(object sender, EventArgs e)
         {
             Form3 nextForm = new Form3();
+            nextForm.tstaff = tstaffBox.Text;
+            nextForm.tno = tnoBox.Text;
+            nextForm.wcode = wcodeBox.Text;
+            nextForm.matcode = matcodeBox.Text;
+            nextForm.weight = weightBox.Text;
             this.Hide();
             DialogResult dialogResult = nextForm.ShowDialog();
         }
