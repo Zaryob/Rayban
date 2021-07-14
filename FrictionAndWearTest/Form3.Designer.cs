@@ -29,6 +29,7 @@ namespace FrictionAndWearTest
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label6 = new System.Windows.Forms.Label();
             this.tstaffBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,10 +53,13 @@ namespace FrictionAndWearTest
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.resultOfCoefficent = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.portStatusLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label11 = new System.Windows.Forms.Label();
+            this.connStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label6
@@ -209,6 +213,7 @@ namespace FrictionAndWearTest
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(121, 23);
             this.textBox9.TabIndex = 18;
+            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // comboBox1
             // 
@@ -293,16 +298,16 @@ namespace FrictionAndWearTest
             this.label10.Text = "Friction Coefficent";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // label11
+            // resultOfCoefficent
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(98, 127);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(14, 21);
-            this.label11.TabIndex = 31;
-            this.label11.Text = " ";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
+            this.resultOfCoefficent.AutoSize = true;
+            this.resultOfCoefficent.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.resultOfCoefficent.Location = new System.Drawing.Point(98, 127);
+            this.resultOfCoefficent.Name = "resultOfCoefficent";
+            this.resultOfCoefficent.Size = new System.Drawing.Size(14, 21);
+            this.resultOfCoefficent.TabIndex = 31;
+            this.resultOfCoefficent.Text = " ";
+            this.resultOfCoefficent.Click += new System.EventHandler(this.label11_Click);
             // 
             // comboBox2
             // 
@@ -311,12 +316,13 @@ namespace FrictionAndWearTest
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 23);
             this.comboBox2.TabIndex = 32;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(615, 216);
+            this.label2.Location = new System.Drawing.Point(577, 216);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 15);
             this.label2.TabIndex = 33;
@@ -326,11 +332,31 @@ namespace FrictionAndWearTest
             // portStatusLabel
             // 
             this.portStatusLabel.AutoSize = true;
-            this.portStatusLabel.Location = new System.Drawing.Point(693, 216);
+            this.portStatusLabel.Location = new System.Drawing.Point(655, 216);
             this.portStatusLabel.Name = "portStatusLabel";
             this.portStatusLabel.Size = new System.Drawing.Size(10, 15);
             this.portStatusLabel.TabIndex = 34;
             this.portStatusLabel.Text = " ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(577, 246);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(111, 15);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "Connection Status:";
+            // 
+            // connStatus
+            // 
+            this.connStatus.AutoSize = true;
+            this.connStatus.Location = new System.Drawing.Point(695, 246);
+            this.connStatus.Name = "connStatus";
+            this.connStatus.Size = new System.Drawing.Size(13, 15);
+            this.connStatus.TabIndex = 36;
+            this.connStatus.Text = "  ";
+            this.connStatus.Click += new System.EventHandler(this.connStatus_Click);
             // 
             // Form3
             // 
@@ -339,10 +365,12 @@ namespace FrictionAndWearTest
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.connStatus);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.portStatusLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.resultOfCoefficent);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -400,10 +428,14 @@ namespace FrictionAndWearTest
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label resultOfCoefficent;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label portStatusLabel;
+        private System.Windows.Forms.Timer timer1;
+        private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label connStatus;
     }
 }
 
