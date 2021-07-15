@@ -259,12 +259,24 @@ namespace FrictionAndWearTest
         {
             try
             {
-
                 string result = serialPort1.ReadExisting();
-                resultOfCoefficent.Text = result + "";
-                double a = Convert.ToDouble(result);
-                double b = Convert.ToDouble(weightBox.Text);
-                label10.Text = (a / b).ToString();
+
+                result = result.Split('\n')[0];
+                //Console.WriteLine(sonuc);
+                //Console.WriteLine(String.IsNullOrEmpty(sonuc));
+                //Console.WriteLine(String.IsNullOrWhiteSpace(sonuc));
+
+                if (String.IsNullOrEmpty(result))
+                {
+                    result = "0";
+                }
+                else
+                {
+                    takenData.Text = result + "";
+                    double a = Convert.ToDouble(result);
+                    double b = Convert.ToDouble(weightBox.Text);
+                    resultOfCoefficent.Text = (a / b).ToString();
+                }
                   
             }
             catch (Exception ex)
@@ -277,6 +289,16 @@ namespace FrictionAndWearTest
         }
 
         private void connStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
         {
 
         }

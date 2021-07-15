@@ -85,6 +85,7 @@ namespace FrictionAndWearTest
             // 
             // Form1
             // 
+            this.AcceptButton = this.button1;
             this.AccessibleDescription = "This is welcome page for friction tester.";
             this.AccessibleName = "Friction Test Welcome";
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);

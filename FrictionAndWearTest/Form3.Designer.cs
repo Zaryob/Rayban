@@ -61,6 +61,8 @@ namespace FrictionAndWearTest
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.label11 = new System.Windows.Forms.Label();
             this.connStatus = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.takenData = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label6
@@ -255,7 +257,7 @@ namespace FrictionAndWearTest
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button4.Location = new System.Drawing.Point(64, 187);
+            this.button4.Location = new System.Drawing.Point(56, 259);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(129, 36);
             this.button4.TabIndex = 27;
@@ -268,7 +270,7 @@ namespace FrictionAndWearTest
             this.button5.BackColor = System.Drawing.Color.Firebrick;
             this.button5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button5.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.button5.Location = new System.Drawing.Point(64, 246);
+            this.button5.Location = new System.Drawing.Point(56, 318);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(129, 36);
             this.button5.TabIndex = 28;
@@ -281,7 +283,7 @@ namespace FrictionAndWearTest
             this.button6.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button6.Location = new System.Drawing.Point(64, 307);
+            this.button6.Location = new System.Drawing.Point(56, 379);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(129, 36);
             this.button6.TabIndex = 29;
@@ -292,7 +294,7 @@ namespace FrictionAndWearTest
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(47, 51);
+            this.label10.Location = new System.Drawing.Point(30, 128);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(195, 30);
             this.label10.TabIndex = 30;
@@ -303,7 +305,7 @@ namespace FrictionAndWearTest
             // 
             this.resultOfCoefficent.AutoSize = true;
             this.resultOfCoefficent.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.resultOfCoefficent.Location = new System.Drawing.Point(98, 127);
+            this.resultOfCoefficent.Location = new System.Drawing.Point(89, 183);
             this.resultOfCoefficent.Name = "resultOfCoefficent";
             this.resultOfCoefficent.Size = new System.Drawing.Size(14, 21);
             this.resultOfCoefficent.TabIndex = 31;
@@ -363,6 +365,27 @@ namespace FrictionAndWearTest
             this.connStatus.Text = "  ";
             this.connStatus.Click += new System.EventHandler(this.connStatus_Click);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(66, 43);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(110, 25);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "Taken Data";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // takenData
+            // 
+            this.takenData.AutoSize = true;
+            this.takenData.Location = new System.Drawing.Point(89, 96);
+            this.takenData.Name = "takenData";
+            this.takenData.Size = new System.Drawing.Size(10, 15);
+            this.takenData.TabIndex = 38;
+            this.takenData.Text = " ";
+            this.takenData.Click += new System.EventHandler(this.label13_Click);
+            // 
             // Form3
             // 
             this.AccessibleDescription = "This is welcome page for friction tester.";
@@ -370,6 +393,8 @@ namespace FrictionAndWearTest
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.takenData);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.connStatus);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.portStatusLabel);
@@ -442,6 +467,8 @@ namespace FrictionAndWearTest
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label connStatus;
         private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label takenData;
     }
 }
 
