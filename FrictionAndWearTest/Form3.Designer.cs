@@ -58,6 +58,7 @@ namespace FrictionAndWearTest
             this.label2 = new System.Windows.Forms.Label();
             this.portStatusLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.label11 = new System.Windows.Forms.Label();
             this.connStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -338,6 +339,10 @@ namespace FrictionAndWearTest
             this.portStatusLabel.TabIndex = 34;
             this.portStatusLabel.Text = " ";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -397,6 +402,7 @@ namespace FrictionAndWearTest
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Form3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Friction and Wear Test";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.ResumeLayout(false);
@@ -433,9 +439,9 @@ namespace FrictionAndWearTest
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label portStatusLabel;
         private System.Windows.Forms.Timer timer1;
-        private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label connStatus;
+        private System.IO.Ports.SerialPort serialPort1;
     }
 }
 
