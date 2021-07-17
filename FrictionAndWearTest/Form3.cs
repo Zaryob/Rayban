@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
-
+using System.IO;
 
 namespace FrictionAndWearTest
 {
@@ -21,7 +21,7 @@ namespace FrictionAndWearTest
         public string weight; 
         string[] ports = SerialPort.GetPortNames();
         private object ComboBox2;
-
+        string filePath = "c:\temp\output.txt";
 
         public Form3()
         {
@@ -276,8 +276,9 @@ namespace FrictionAndWearTest
                     double a = Convert.ToDouble(result);
                     double b = Convert.ToDouble(weightBox.Text);
                     resultOfCoefficent.Text = (a / b).ToString();
+                    File.AppendAllText(filePath, (a / b).ToString()+"\n");
                 }
-                  
+
             }
             catch (Exception ex)
             {
@@ -299,6 +300,11 @@ namespace FrictionAndWearTest
         }
 
         private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
         {
 
         }

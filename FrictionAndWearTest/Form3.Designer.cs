@@ -58,7 +58,6 @@ namespace FrictionAndWearTest
             this.label2 = new System.Windows.Forms.Label();
             this.portStatusLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.label11 = new System.Windows.Forms.Label();
             this.connStatus = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -289,6 +288,7 @@ namespace FrictionAndWearTest
             this.button6.TabIndex = 29;
             this.button6.Text = "Take Output";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label10
             // 
