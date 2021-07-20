@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
-using System.IO;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace FrictionAndWearTest
 {
@@ -21,7 +22,8 @@ namespace FrictionAndWearTest
         public string weight; 
         string[] ports = SerialPort.GetPortNames();
         private object ComboBox2;
-        string filePath = "c:\temp\output.txt";
+        LinkedList<double[]> datas = new LinkedList<double[]>();
+        Stopwatch stopWatch = new Stopwatch();
 
         public Form3()
         {
@@ -206,6 +208,7 @@ namespace FrictionAndWearTest
 
                     timer1.Interval = Int32.Parse(textBox9.Text);
                     timer1.Start();
+                    stopWatch.Start();
                 }
                 catch (Exception hata)
                 {
@@ -219,6 +222,7 @@ namespace FrictionAndWearTest
         private void button5_Click(object sender, EventArgs e)
         {
             timer1.Stop();
+            stopWatch.Stop();
             button4.Enabled = true;
             button5.Enabled = false;
             if (serialPort1.IsOpen == true)
@@ -276,7 +280,9 @@ namespace FrictionAndWearTest
                     double a = Convert.ToDouble(result);
                     double b = Convert.ToDouble(weightBox.Text);
                     resultOfCoefficent.Text = (a / b).ToString();
-                    File.AppendAllText(filePath, (a / b).ToString()+"\n");
+                    long mseconds = stopWatch.ElapsedMilliseconds;
+                    double[] dates = { mseconds, (double)(a / b) };
+                    datas.AddLast(dates);
                 }
 
             }
@@ -285,6 +291,7 @@ namespace FrictionAndWearTest
 
                 MessageBox.Show("Error" + ex.Message);
                 timer1.Stop();
+                stopWatch.Stop();
             }
 
         }
@@ -306,6 +313,70 @@ namespace FrictionAndWearTest
 
         private void button6_Click(object sender, EventArgs e)
         {
+            Microsoft.Office.Interop.Excel.Application oXL;
+            Microsoft.Office.Interop.Excel._Workbook oWB;
+            Microsoft.Office.Interop.Excel._Worksheet oSheet;
+            Microsoft.Office.Interop.Excel.Range oRng;
+
+            try
+            {
+                //Start Excel and get Application object.
+                oXL = new Microsoft.Office.Interop.Excel.Application();
+                oXL.Visible = true;
+
+                //Get a new workbook.
+                oWB = (Microsoft.Office.Interop.Excel._Workbook)(oXL.Workbooks.Add(Missing.Value));
+                oSheet = (Microsoft.Office.Interop.Excel._Worksheet)oWB.ActiveSheet;
+
+                //Add table headers going cell by cell.
+                oSheet.Cells[1, 1] = "Time";
+                oSheet.Cells[1, 2] = "Value";
+                //Format A1:D1 as bold, vertical alignment = center.
+                oSheet.get_Range("A1", "B1").Font.Bold = true;
+                oSheet.get_Range("A1", "B1").VerticalAlignment =
+                Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                string[,] saNames = new string[datas.Count, 2];
+
+                for (int i = 0; i < datas.Count; i++)
+                {
+                    var value = datas.ElementAt(i);
+                    saNames[i, 0] = value[0].ToString();
+                    saNames[i, 1] = value[1].ToString();
+                }
+
+                //Fill A2:BN with an array of values .
+                string lastrow = "B" + (datas.Count + 1).ToString();
+
+                oSheet.get_Range("A2", lastrow).Value2 = saNames;
+
+                //Fill C2:C6 with a relative formula (=A2 & " " & B2).
+                //oRng = oSheet.get_Range("C2", "C6");
+                //oRng.Formula = "=A2 & \" \" & B2";
+
+                //Fill D2:D6 with a formula(=RAND()*100000) and apply format.
+                //oRng = oSheet.get_Range("D2", "D6");
+                //oRng.Formula = "=RAND()*100000";
+                //oRng.NumberFormat = "$0.00";
+
+                //AutoFit columns A:D.
+                //oRng = oSheet.get_Range("A1", "D1");
+                //oRng.EntireColumn.AutoFit();
+
+                //Make sure Excel is visible and give the user control
+                //of Microsoft Excel's lifetime.
+                oXL.Visible = true;
+                oXL.UserControl = true;
+            }
+            catch (Exception theException)
+            {
+                String errorMessage;
+                errorMessage = "Error: ";
+                errorMessage = String.Concat(errorMessage, theException.Message);
+                errorMessage = String.Concat(errorMessage, " Line: ");
+                errorMessage = String.Concat(errorMessage, theException.Source);
+
+                MessageBox.Show(errorMessage, "Error");
+            }
 
         }
     }
