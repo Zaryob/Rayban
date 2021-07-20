@@ -281,6 +281,7 @@ namespace FrictionAndWearTest
                     double b = Convert.ToDouble(weightBox.Text);
                     resultOfCoefficent.Text = (a / b).ToString();
                     long mseconds = stopWatch.ElapsedMilliseconds;
+                    timeOutput.Text = mseconds.ToString();
                     double[] dates = { mseconds, (double)(a / b) };
                     datas.AddLast(dates);
                 }
@@ -377,6 +378,11 @@ namespace FrictionAndWearTest
 
                 MessageBox.Show(errorMessage, "Error");
             }
+
+        }
+
+        private void label13_Click_1(object sender, EventArgs e)
+        {
 
         }
     }
