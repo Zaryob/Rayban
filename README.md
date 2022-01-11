@@ -1,2 +1,0 @@
-Friction and Wear Test
-======================
